@@ -197,7 +197,7 @@ cardKentuckyCoronelSandwich.classList.add('card', 'h-100');
 
 //Imagen para el Kentucky Coronel Sandwich
 let imgKentuckyCoronelSandwich = document.createElement('img');
-imgKentuckyCoronelSandwich.src = 'images/hamburguesa-4.webp';
+imgKentuckyCoronelSandwich.src = './images/hamburguesa-4.webp';
 imgKentuckyCoronelSandwich.alt = 'Hamburguesita 4';
 imgKentuckyCoronelSandwich.classList.add('img-fluid');
 
@@ -241,7 +241,7 @@ cardComboKentuckySandwich.classList.add('card', 'h-100');
 
 //Imagen para el Combo Kentucky Sandwich
 let imgComboKentuckySandwich = document.createElement('img');
-imgComboKentuckySandwich.src = 'images/hamburguesa-5.webp';
+imgComboKentuckySandwich.src = './images/hamburguesa-5.webp';
 imgComboKentuckySandwich.alt = 'Hamburguesita 5';
 imgComboKentuckySandwich.classList.add('img-fluid');
 
