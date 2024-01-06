@@ -1,0 +1,53 @@
+body {
+    transition: all 1s;
+}
+
+/*Modo oscuro*/
+.theme-dark {
+    background-color: rgb(36, 32, 32);
+}
+
+.theme-dark .card {
+    background-color: rgb(63, 61, 61);
+    color: rgb(255, 255, 255);
+}
+
+.theme-dark .bg-danger {
+    background-color: rgb(0, 0, 0) !important;
+    color: aliceblue;
+}
+
+.theme-dark .btn-danger {
+    background-color: rgb(0, 0, 0) !important;
+    color: aliceblue;
+}
+
+/*Modo libre*/
+.theme-free {
+    background-color: rgb(161, 93, 53);
+}
+
+.theme-free .card {
+    background-color: rgb(187, 144, 87);
+    color: rgb(58, 45, 38);
+}
+
+.theme-free .bg-danger {
+    background-color: rgb(97, 39, 39) !important;
+    color: aliceblue;
+}
+
+.theme-free .btn-danger {
+    background-color: rgb(97, 39, 39) !important;
+    color: aliceblue;
+}
+
+/*Modo claro*/
+.theme-white {
+    background-color: rgb(214, 184, 144);
+}
+
+.theme-white .card {
+    background-color: rgb(255, 255, 255);
+    color: rgb(8, 8, 8);
+}
