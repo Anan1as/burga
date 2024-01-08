@@ -1,4 +1,134 @@
+/*---------------Segunda Actividad del DOM y desarrollo con clicos y listas ----------------*/
 let body = document.body;
+
+//Contenedor de la fila de los selectores
+let containerSelectores = document.createElement('div'); containerSelectores.classList.add('container', 'mt-5');
+
+//Fila para los selectores
+let rowSelectores = document.createElement('div'); rowSelectores.classList.add('row'); containerSelectores.appendChild(rowSelectores);
+
+//Columna para el selector de idioma
+let colIdioma = document.createElement('div'); colIdioma.classList.add('col-md-6');
+
+//Selector de idioma y opciones de idioma
+let seleccionIdioma = document.createElement("select"); seleccionIdioma.setAttribute("id", "language"); seleccionIdioma.setAttribute("class", "form-select");
+
+let opcionPredeterminadaIdioma = document.createElement("option"); opcionPredeterminadaIdioma.disabled = true; opcionPredeterminadaIdioma.selected = true; opcionPredeterminadaIdioma.innerHTML = "Idioma";
+
+let opcionEspanol = document.createElement("option"); opcionEspanol.setAttribute("value", "Espanol"); opcionEspanol.innerHTML = "Español";
+
+let opcionIngles = document.createElement("option"); opcionIngles.setAttribute("value", "Ingles"); opcionIngles.innerHTML = "Ingles";
+
+seleccionIdioma.append(opcionPredeterminadaIdioma, opcionEspanol, opcionIngles); colIdioma.appendChild(seleccionIdioma);
+
+//Columna para el selector de tema
+let colTema = document.createElement('div'); colTema.classList.add('col-md-6');
+
+//Selector de tema y opciones de tema
+let seleccionTema = document.createElement("select"); seleccionTema.setAttribute("id", "theme"); seleccionTema.setAttribute("class", "form-select");
+
+let opcionPredeterminadaTema = document.createElement("option"); opcionPredeterminadaTema.disabled = true; opcionPredeterminadaTema.selected = true; opcionPredeterminadaTema.innerHTML = "Tema";
+
+let opcionOscuro = document.createElement("option"); opcionOscuro.setAttribute("value", "dark"); opcionOscuro.innerHTML = "Oscuro";
+
+let opcionClaro = document.createElement("option"); opcionClaro.setAttribute("value", "white"); opcionClaro.innerHTML = "Claro";
+
+let opcionFree = document.createElement("option"); opcionFree.setAttribute("value", "free"); opcionFree.innerHTML = "Otoño";
+
+seleccionTema.append(opcionPredeterminadaTema, opcionOscuro, opcionClaro, opcionFree); colTema.appendChild(seleccionTema);
+
+//Agregar ambas columnas
+rowSelectores.append(colIdioma, colTema);
+
+let hamburguesas = [{ imgSrc: './images/hamburguesa-1.webp', imgAlt: 'Hamburguesa 1', price: '$ 8.900', name: 'BBQ Crunch', description: '1 Sandwich BBQ Crunch (1 filete de pollo apanado)'
+    },{ imgSrc: './images/hamburguesa-2.webp', imgAlt: 'Hamburguesa 2', price:'$ 15.900', name:'Kentucky Sandwich', description:'1 Kentucky hamburguesa / Sandwich (1 filete de pechuga de pollo apanado, pepinillos, ...'
+    },{ imgSrc: './images/hamburguesa-3.webp', imgAlt: 'Hamburguesa 3', price:'$ 15.900', name:'Combo BBQ Sandwich', description:'1 Sandwich BBQ Crunch (1 filete de pollo apanado) + 1 Papa pequeña + 1 gaseosa...'
+    },{ imgSrc: './images/hamburguesa-4.webp', imgAlt: 'Hamburguesa 4', price:'$ 16.900', name:'Kentucky Coronel Sandwich', description:'1 Kentucky Coronel hamburguesa / Sandwich (1 Filete de pechuga de pollo apanado, Ensalada...'
+    },{ imgSrc: './images/hamburguesa-5.webp', imgAlt: 'Hamburguesa 5', price:'$ 21.900', name:'Combo Kentucky Sandwich', description:'1 Kentucky hamburguesa / Sandwich (1 filete de pechuga de pollo apanado, pepinillos, ...'
+    },{ imgSrc: './images/hamburguesa-6.webp', imgAlt: 'Hamburguesa 6', price:'$ 22.900', name:'Combo Kentucky Coronel Sandwich', description:'1 Kentucky hamburguesa / Sandwich (1 filete de pechuga de pollo apanado, Ensalada, ...'
+    },{ imgSrc: './images/hamburguesa-7.webp', imgAlt: 'Hamburguesa 7', price:'$ 23.900', name:'Sandwich Crispy BBQ', description:'1 Sandwich Crispy BBQ (1 filete de pechuga de pollo extra grande, triple empanizado, cebolla, ...'
+    },{ imgSrc: './images/hamburguesa-8.webp', imgAlt: 'Hamburguesa 8', price:'$ 29.900', name:'Combo Sandwich Crispy BBQ', description:'1 Sandwich Crispy BBQ(1 Filete de pechuga extra grande, triple empanizado, cebolla, ...'}];
+
+// Contenedor principal
+let container = document.createElement('div');
+container.classList.add('container', 'mt-5');
+
+// Crear fila para los elementos del menú
+let rowMenu = document.createElement('div');
+rowMenu.classList.add('row');
+container.appendChild(rowMenu);
+
+// Generar elementos del menú usando bucles
+hamburguesas.forEach(item => {
+    let colItem = document.createElement('div'); colItem.classList.add('col-md-3', 'col-sm-6', 'mt-5');
+
+    let cardItem = document.createElement('div'); cardItem.classList.add('card', 'h-100');
+
+    let imgItem = document.createElement('img'); imgItem.src = item.imgSrc; imgItem.alt = item.imgAlt; imgItem.classList.add('img-fluid');
+
+    let cardBodyItem = document.createElement('div'); cardBodyItem.classList.add('card-body', 'd-flex', 'flex-column');
+
+    let h5Price = document.createElement('h5'); h5Price.innerHTML = item.price;
+
+    let h5Name = document.createElement('h5'); h5Name.innerHTML = item.name;
+
+    let parrafoDescription = document.createElement('p'); parrafoDescription.innerHTML = item.description;
+
+    let btnBuy = document.createElement('button'); btnBuy.classList.add('btn', 'btn-danger', 'w-100', 'mt-auto'); btnBuy.innerHTML = 'Comprar'; cardBodyItem.append(h5Price, h5Name, parrafoDescription, btnBuy); cardItem.append(imgItem, cardBodyItem); colItem.appendChild(cardItem); rowMenu.appendChild(colItem);
+});
+
+// Crear footer
+let footer = document.createElement('footer'); footer.classList.add('mt-5', 'p-4', 'text-light', 'bg-danger'); body.append(containerSelectores, container, footer);
+
+//Hacer el contenedor para los elementos del footer
+let contenedorFooter = document.createElement("div"); contenedorFooter.classList.add('container'); footer.appendChild(contenedorFooter);
+
+//Hacer la fila para los elementos dentro del contenedor del footer
+let rowFooter = document.createElement("div"); rowFooter.classList.add("row"); contenedorFooter.appendChild(rowFooter);
+
+//Hacer la columna para los elementos dentro de la fila del footer
+let colFooter = document.createElement("div"); colFooter.classList.add("col-md-12", "text-center"); rowFooter.appendChild(colFooter);
+
+//Hacer los elementos para la columna
+let h5Footer = document.createElement("h5"); h5Footer.innerHTML = "Hambre de promos - KFC";
+let parrafoFooter = document.createElement("p"); parrafoFooter.classList.add('mb-0'); parrafoFooter.innerHTML = "Disfruta de nuestro delicioso pollo frito, popcorn, alitas picantes, sándwiches originales, postres, y más. Conoce aquí nuestro menú KFC."
+
+//Agregar los elementos de la columna para el footer
+colFooter.append(h5Footer, parrafoFooter);
+
+/*--------Fin del desarrollo de DOM con ciclos y listas---------- */
+//Logica para los temas
+let themeSelector = document.getElementById("theme");
+
+themeSelector.addEventListener("change", () => {
+    if (themeSelector.value == "dark") {
+        localStorage.setItem('Theme', themeSelector.value);
+        body.className = "theme-dark";
+
+    } else if (themeSelector.value == "white") {
+        localStorage.setItem('Theme', themeSelector.value);
+        body.className = "theme-white";
+
+    } else if (themeSelector.value == "free") {
+        localStorage.setItem('Theme', themeSelector.value);
+        body.className = "theme-free";
+    }
+});
+
+
+let theme = localStorage.getItem("Theme");
+
+if (theme == "dark") {
+    body.className = "theme-dark";
+
+} else if (theme == "white") {
+    body.className = "theme-white";
+
+} else if (theme == "free") {
+    body.className = "theme-free";
+};
+
+/*let body = document.body;
 
 //Contenedor de la fila de los selectores
 let containerSelectores = document.createElement('div');
@@ -416,37 +546,6 @@ parrafoFooter.innerHTML = "Disfruta de nuestro delicioso pollo frito, popcorn, a
 colFooter.append(h5Footer, parrafoFooter);
 
 //Agregar todos los elementos en el body
-body.append(containerSelectores, containerMenu, footer);
+body.append(containerSelectores, containerMenu, footer);*/
 
 /* ---------------------- Fin del DOM para los objetos -------------------------- */
-
-//Logica para los temas
-let themeSelector = document.getElementById("theme");
-
-themeSelector.addEventListener("change", () => {
-    if (themeSelector.value == "dark") {
-        localStorage.setItem('Theme', themeSelector.value);
-        body.className = "theme-dark";
-
-    } else if (themeSelector.value == "white") {
-        localStorage.setItem('Theme', themeSelector.value);
-        body.className = "theme-white";
-
-    } else if (themeSelector.value == "free") {
-        localStorage.setItem('Theme', themeSelector.value);
-        body.className = "theme-free";
-    }
-});
-
-
-let theme = localStorage.getItem("Theme");
-
-if (theme == "dark") {
-    body.className = "theme-dark";
-
-} else if (theme == "white") {
-    body.className = "theme-white";
-
-} else if (theme == "free") {
-    body.className = "theme-free";
-};
